@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Knowledge Widget Demo</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    header {
+      text-align: center;
+      color: white;
+      margin-bottom: 40px;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    .demo-content {
+      background: white;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    }
+
+    h2 {
+      color: #1a1a2e;
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+    }
+
+    .code-block {
+      background: #1e1e1e;
+      color: #e6e6e6;
+      padding: 20px;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin-bottom: 30px;
+      font-family: 'Monaco', 'Menlo', monospace;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .code-block .comment {
+      color: #6a9955;
+    }
+
+    .code-block .string {
+      color: #ce9178;
+    }
+
+    .code-block .tag {
+      color: #569cd6;
+    }
+
+    .code-block .attr {
+      color: #9cdcfe;
+    }
+
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .option-card {
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid #e9ecef;
+    }
+
+    .option-card h3 {
+      color: #495057;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+
+    .option-card code {
+      background: #e9ecef;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      color: #6366f1;
+    }
+
+    .option-card p {
+      margin-top: 8px;
+      color: #6c757d;
+      font-size: 0.9rem;
+    }
+
+    .sample-content {
+      background: #f8f9fa;
+      padding: 30px;
+      border-radius: 8px;
+      margin-top: 30px;
+    }
+
+    .sample-content h3 {
+      margin-bottom: 15px;
+    }
+
+    .sample-content p {
+      margin-bottom: 15px;
+      color: #495057;
+    }
+
+    .sample-content ul {
+      margin-left: 20px;
+      color: #495057;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #6366f1;
+      color: white;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      margin-left: 10px;
+    }
+
+    .try-it {
+      text-align: center;
+      padding: 30px;
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      border-radius: 12px;
+      margin-top: 30px;
+    }
+
+    .try-it p {
+      color: white;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .try-it .arrow {
+      font-size: 2rem;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0) rotate(45deg); }
+      40% { transform: translateY(-10px) rotate(45deg); }
+      60% { transform: translateY(-5px) rotate(45deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🤖 Knowledge Widget</h1>
+      <p>Embeddable AI-powered chat for your knowledge base</p>
+    </header>
+
+    <div class="demo-content">
+      <h2>Quick Start</h2>
+      <p style="margin-bottom: 20px; color: #6c757d;">Add this script tag to any website to embed the widget:</p>
+
+      <div class="code-block">
+<span class="comment">&lt;!-- Add before closing &lt;/body&gt; tag --&gt;</span>
+<span class="tag">&lt;script</span>
+  <span class="attr">src</span>=<span class="string">"https://your-domain.com/widget.js"</span>
+  <span class="attr">data-api-url</span>=<span class="string">"https://your-domain.com"</span>
+  <span class="attr">data-position</span>=<span class="string">"bottom-right"</span>
+  <span class="attr">data-theme</span>=<span class="string">"light"</span>
+  <span class="attr">data-primary-color</span>=<span class="string">"#6366f1"</span>
+  <span class="attr">data-title</span>=<span class="string">"Ask us anything"</span>
+  <span class="attr">defer</span>
+<span class="tag">&gt;&lt;/script&gt;</span>
+      </div>
+
+      <h2>Configuration Options</h2>
+      <div class="options-grid">
+        <div class="option-card">
+          <h3>API URL</h3>
+          <code>data-api-url</code>
+          <p>Your API endpoint URL that handles chat requests</p>
+        </div>
+        <div class="option-card">
+          <h3>Position</h3>
+          <code>data-position</code>
+          <p>Widget position: bottom-right, bottom-left, top-right, top-left</p>
+        </div>
+        <div class="option-card">
+          <h3>Theme</h3>
+          <code>data-theme</code>
+          <p>Color theme: light or dark</p>
+        </div>
+        <div class="option-card">
+          <h3>Primary Color</h3>
+          <code>data-primary-color</code>
+          <p>Hex color code for branding (e.g., #6366f1)</p>
+        </div>
+        <div class="option-card">
+          <h3>Title</h3>
+          <code>data-title</code>
+          <p>Header text displayed in the chat panel</p>
+        </div>
+        <div class="option-card">
+          <h3>Placeholder</h3>
+          <code>data-placeholder</code>
+          <p>Input field placeholder text</p>
+        </div>
+        <div class="option-card">
+          <h3>Welcome Message</h3>
+          <code>data-welcome-message</code>
+          <p>Initial greeting message from the assistant</p>
+        </div>
+      </div>
+
+      <h2>JavaScript API</h2>
+      <div class="code-block">
+<span class="comment">// Programmatically control the widget</span>
+window.KnowledgeWidget.open();   <span class="comment">// Open the chat panel</span>
+window.KnowledgeWidget.close();  <span class="comment">// Close the chat panel</span>
+      </div>
+
+      <div class="sample-content">
+        <h3>Sample Page Content <span class="badge">Demo</span></h3>
+        <p>
+          This is a sample page to demonstrate the Knowledge Widget integration.
+          Click the chat bubble in the bottom-right corner to try it out!
+        </p>
+        <p>
+          The widget connects to your Supabase vector database to provide
+          AI-powered answers based on your knowledge base content.
+        </p>
+        <ul>
+          <li>Fully customizable appearance</li>
+          <li>Dark mode support</li>
+          <li>Mobile responsive</li>
+          <li>Source citations</li>
+          <li>Markdown rendering</li>
+        </ul>
+      </div>
+
+      <div class="try-it">
+        <p>👇 Try the widget now!</p>
+        <div class="arrow">↘</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Knowledge Widget -->
+  <script
+    src="/widget.js"
+    data-api-url=""
+    data-position="bottom-right"
+    data-theme="light"
+    data-primary-color="#6366f1"
+    data-title="Ask us anything"
+    data-placeholder="Type your question..."
+    data-welcome-message="Hi! 👋 I'm here to help answer your questions. What would you like to know?"
+    defer
+  ></script>
+</body>
+</html>

@@ -6,10 +6,14 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "insert-prevet": "tsx scripts/insert-prevet-content.ts"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.91.1",
+    "dotenv": "^17.2.3",
     "next": "16.1.4",
+    "openai": "^6.16.0",
     "react": "19.2.3",
     "react-dom": "19.2.3"
   },
@@ -21,6 +25,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.1.4",
     "tailwindcss": "^4",
+    "tsx": "^4.19.0",
     "typescript": "^5"
   }
 }

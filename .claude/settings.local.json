@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -C /Applications/XAMPP/xamppfiles/htdocs/context log --oneline -10)",
+      "Bash(npm install:*)",
+      "Bash(npm run insert-prevet:*)",
+      "Bash(npx tsx scripts/test-search.ts)"
+    ]
+  }
+}
