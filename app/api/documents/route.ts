@@ -32,6 +32,10 @@ export async function POST(request: NextRequest) {
 
     if (body.content) {
       const result = await embedDocument({
+        source_type: body.source_type || 'manual',
+        source_id: body.source_id || `manual_${Date.now()}`,
+        source_url: body.source_url,
+        title: body.title,
         content: body.content,
         metadata: body.metadata,
       });

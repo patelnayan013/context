@@ -11,7 +11,9 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.91.1",
+    "asana": "^3.1.5",
     "dotenv": "^17.2.3",
+    "inngest": "^3.49.3",
     "next": "16.1.4",
     "openai": "^6.16.0",
     "react": "19.2.3",
@@ -19,6 +21,7 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@types/asana": "^0.18.17",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
